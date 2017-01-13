@@ -1,4 +1,4 @@
-package com.evan.plugin.cordova;
+package tech.bigbug.cordova.plugin.buglyupgrade;
 
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
