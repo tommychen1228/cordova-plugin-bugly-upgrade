@@ -1,4 +1,4 @@
-<plugin id="com.evan.upgrade"
+<plugin id="tech.bigbug.cordova.plugin.buglyupgrade"
 version="0.0.1"
 xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android">
@@ -6,16 +6,16 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 <description>tencent upgrade for cordova plugin</description>
 <author>Evan Zhang</author>
 <js-module
-    name="UpgradePlugin"
+    name="buglyupgrade"
     src="www/UpgradePlugin.js">
-    <clobbers target="UpgradePlugin" />
+    <clobbers target="buglyupgrade" />
 </js-module>
 <platform name="android">
     <config-file
         parent="/*"
         target="res/xml/config.xml">
         <feature name="UpgradePlugin">
-            <param name="android-package" value="com.evan.plugin.cordova.UpgradePlugin" />
+            <param name="android-package" value="tech.bigbug.cordova.plugin.buglyupgrade.UpgradePlugin" />
         </feature>
     </config-file>
     <config-file parent="/manifest" target="AndroidManifest.xml">
@@ -42,7 +42,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
             android:theme="@android:style/Theme.Translucent" />
     </config-file>	
     <!--src-->
-    <source-file src="src/android/UpgradePlugin.java" target-dir="src/com/evan/plugin/cordova" />
+    <source-file src="src/android/UpgradePlugin.java" target-dir="src/tech/bigbug/cordova/plugin/buglyupgrade" />
     <!--res/xml-->
     <source-file src="res/android/xml/provider_paths.xml" target-dir="res/xml" />
     <framework src="junit:junit:4.12" />
