@@ -24,11 +24,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
         <uses-permission android:name="android.permission.READ_LOGS" />
-        <!--±£´æ×ÊÔ´µ½SD¿¨-->
+        <!--Â±Â£Â´Ã¦Ã—ÃŠÃ”Â´ÂµÂ½SDÂ¿Â¨-->
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<activity
-            android:name="com.tencent.bugly.beta.ui.BetaActivity"
-            android:theme="@android:style/Theme.Translucent" />
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="$PACKAGE_NAME.fileProvider"
@@ -39,6 +36,11 @@ xmlns:android="http://schemas.android.com/apk/res/android">
                 android:resource="@xml/provider_paths"/>
         </provider>
     </config-file>
+    <config-file parent="/manifest/application" target="AndroidManifest.xml">
+	<activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:theme="@android:style/Theme.Translucent" />
+    </config-file>	
     <!--src-->
     <source-file src="src/android/UpgradePlugin.java" target-dir="src/com/evan/plugin/cordova" />
     <!--res/xml-->
