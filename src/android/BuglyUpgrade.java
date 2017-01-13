@@ -1,4 +1,4 @@
-ï»¿package tech.bigbug.cordova.plugin;
+package tech.bigbug.cordova.plugin;
 
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
@@ -17,21 +17,21 @@ public class BuglyUpgrade extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("initApp")) {
             /**
-             * wifiä¸‹è‡ªåŠ¨ä¸‹è½½
+             * wifiÏÂ×Ô¶¯ÏÂÔØ
              */
             Beta.autoDownloadOnWifi = false;
             /**
-             * æ˜¯å¦æ˜¾ç¤ºå¼¹çª—apkä¿¡æ¯ï¼ˆé»˜è®¤å¼¹çª—ï¼‰
+             * ÊÇ·ñÏÔÊ¾µ¯´°apkĞÅÏ¢£¨Ä¬ÈÏµ¯´°£©
              */
             Beta.canShowApkInfo = true;
 
             String androidAppID = args.optString(0);
             /**
-             * å·²ç»æ¥å…¥Buglyç”¨æˆ·æ”¹ç”¨ä¸Šé¢çš„åˆå§‹åŒ–æ–¹æ³•,ä¸å½±å“åŸæœ‰çš„crashä¸ŠæŠ¥åŠŸèƒ½;.
-             * initæ–¹æ³•ä¼šè‡ªåŠ¨æ£€æµ‹æ›´æ–°ï¼Œä¸éœ€è¦å†æ‰‹åŠ¨è°ƒç”¨Beta.checkUpgrade(),å¦‚éœ€å¢åŠ è‡ªåŠ¨æ£€æŸ¥æ—¶æœºå¯ä»¥ä½¿ç”¨Beta.checkUpgrade(false,false);
-             * å‚æ•°1ï¼šapplicationContext
-             * å‚æ•°2ï¼šappId
-             * å‚æ•°3ï¼šæ˜¯å¦å¼€å¯debug
+             * ÒÑ¾­½ÓÈëBuglyÓÃ»§¸ÄÓÃÉÏÃæµÄ³õÊ¼»¯·½·¨,²»Ó°ÏìÔ­ÓĞµÄcrashÉÏ±¨¹¦ÄÜ;.
+             * init·½·¨»á×Ô¶¯¼ì²â¸üĞÂ£¬²»ĞèÒªÔÙÊÖ¶¯µ÷ÓÃBeta.checkUpgrade(),ÈçĞèÔö¼Ó×Ô¶¯¼ì²éÊ±»ú¿ÉÒÔÊ¹ÓÃBeta.checkUpgrade(false,false);
+             * ²ÎÊı1£ºapplicationContext
+             * ²ÎÊı2£ºappId
+             * ²ÎÊı3£ºÊÇ·ñ¿ªÆôdebug
              */
             Bugly.init(this.cordova.getActivity(), androidAppID , false);
             callbackContext.success();
