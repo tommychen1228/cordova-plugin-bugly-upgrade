@@ -1,0 +1,51 @@
+<plugin id="com.evan.upgrade"
+version="0.0.1"
+xmlns="http://apache.org/cordova/ns/plugins/1.0"
+xmlns:android="http://schemas.android.com/apk/res/android">
+<name>tencent upgrade Plugin</name>
+<description>tencent upgrade for cordova plugin</description>
+<author>Evan Zhang</author>
+<js-module
+    name="UpgradePlugin"
+    src="www/UpgradePlugin.js">
+    <clobbers target="UpgradePlugin" />
+</js-module>
+<platform name="android">
+    <config-file
+        parent="/*"
+        target="res/xml/config.xml">
+        <feature name="UpgradePlugin">
+            <param name="android-package" value="com.evan.plugin.cordova.UpgradePlugin" />
+        </feature>
+    </config-file>
+    <config-file parent="/manifest" target="AndroidManifest.xml">
+        <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        <uses-permission android:name="android.permission.READ_LOGS" />
+        <!--保存资源到SD卡-->
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:theme="@android:style/Theme.Translucent" />
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="$PACKAGE_NAME.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+    </config-file>
+    <!--src-->
+    <source-file src="src/android/UpgradePlugin.java" target-dir="src/com/evan/plugin/cordova" />
+    <!--res/xml-->
+    <source-file src="res/android/xml/provider_paths.xml" target-dir="res/xml" />
+    <framework src="junit:junit:4.12" />
+    <framework src="com.android.support:appcompat-v7:24.2.1" />
+    <framework src="com.tencent.bugly:crashreport_upgrade:latest.release" />
+    <resource-file src="libs/bugly_crashreport_upgrade-1.2.1.aar" target="libs/bugly_crashreport_upgrade-1.2.1.aar"/>
+</platform>
+</plugin>
