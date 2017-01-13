@@ -1,4 +1,4 @@
-<plugin id="tech.bigbug.cordova.plugin.buglyupgrade"
+﻿<plugin id="tech.bigbug.cordova.plugin.buglyupgrade"
 version="0.0.1"
 xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android">
@@ -7,15 +7,15 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 <author>Evan Zhang</author>
 <js-module
     name="buglyupgrade"
-    src="www/UpgradePlugin.js">
+    src="www/BuglyUpgrade.js">
     <clobbers target="buglyupgrade" />
 </js-module>
 <platform name="android">
     <config-file
         parent="/*"
         target="res/xml/config.xml">
-        <feature name="UpgradePlugin">
-            <param name="android-package" value="tech.bigbug.cordova.plugin.buglyupgrade.UpgradePlugin" />
+        <feature name="BuglyUpgrade">
+            <param name="android-package" value="tech.bigbug.cordova.plugin.BuglyUpgrade" />
         </feature>
     </config-file>
     <config-file parent="/manifest" target="AndroidManifest.xml">
@@ -42,7 +42,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
             android:theme="@android:style/Theme.Translucent" />
     </config-file>	
     <!--src-->
-    <source-file src="src/android/UpgradePlugin.java" target-dir="src/tech/bigbug/cordova/plugin/buglyupgrade" />
+    <source-file src="src/android/BuglyUpgrade.java" target-dir="src/tech/bigbug/cordova/plugin" />
     <!--res/xml-->
     <source-file src="res/android/xml/provider_paths.xml" target-dir="res/xml" />
     <framework src="junit:junit:4.12" />
