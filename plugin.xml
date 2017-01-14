@@ -1,14 +1,14 @@
 ﻿<plugin id="tech.bigbug.cordova.plugin.buglyupgrade"
-version="0.0.1"
+version="1.0.0"
 xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android">
-<name>tencent upgrade Plugin</name>
-<description>tencent upgrade for cordova plugin</description>
-<author>Evan Zhang</author>
+<name>Bugly Upgrade</name>
+<description>Bugly upgrade for cordova plugin</description>
+<author>bigbug.tech</author>
 <js-module
-    name="buglyupgrade"
+    name="BuglyUpgrade"
     src="www/BuglyUpgrade.js">
-    <clobbers target="buglyupgrade" />
+    <clobbers target="BuglyUpgrade" />
 </js-module>
 <platform name="android">
     <config-file
@@ -24,7 +24,6 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
         <uses-permission android:name="android.permission.READ_LOGS" />
-        <!--±£´æ×ÊÔ´µ½SD¿¨-->
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -41,13 +40,32 @@ xmlns:android="http://schemas.android.com/apk/res/android">
             android:name="com.tencent.bugly.beta.ui.BetaActivity"
             android:theme="@android:style/Theme.Translucent" />
     </config-file>	
-    <!--src-->
+    <!-- src -->
     <source-file src="src/android/BuglyUpgrade.java" target-dir="src/tech/bigbug/cordova/plugin" />
-    <!--res/xml-->
+    <!-- res/xml -->
     <source-file src="res/android/xml/provider_paths.xml" target-dir="res/xml" />
-    <framework src="junit:junit:4.12" />
-    <framework src="com.android.support:appcompat-v7:24.2.1" />
-    <framework src="com.tencent.bugly:crashreport_upgrade:latest.release" />
-    <resource-file src="libs/bugly_crashreport_upgrade-1.2.1.aar" target="libs/bugly_crashreport_upgrade-1.2.1.aar"/>
+    <!-- framework -->
+    <framework src="com.tencent.bugly:crashreport_upgrade:latest.release"></framework>
+    <framework src="com.tencent.bugly:nativecrashreport:latest.release"></framework>
+    <framework src="res/android/bugly-upgrade.gradle" custom="true" type="gradleReference" />
+    <!--<resource-file src="libs/android/bugly_crashreport_upgrade-1.2.1.aar" target="libs"/>-->
+   
 </platform>
+<platform name="ios">
+        <config-file parent="/widget" target="config.xml">
+            <feature name="BuglyUpgrade">
+                <param name="ios-package" value="BuglyUpgrade"/>
+            </feature>
+        </config-file>
+        <!-- src -->
+        <header-file src="src/ios/BuglyUpgrade.h" />
+        <source-file src="src/ios/BuglyUpgrade.m" />
+        <!-- framework -->
+        <framework src="SystemConfiguration.framework"/>
+        <framework src="Security.framework"/>
+        <framework src="JavascriptCore.framework"/>
+        <framework src="libz.tbd"/>
+        <framework src="libc++.tbd"/>
+        <framework custom="true" src="libs/ios/BuglyHotfix.framework"/>
+    </platform>
 </plugin>

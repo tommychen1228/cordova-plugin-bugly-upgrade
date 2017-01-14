@@ -23,7 +23,7 @@ public class BuglyUpgrade extends CordovaPlugin {
 
             String androidAppID = args.optString(0);
             
-            Bugly.init(this.cordova.getActivity(), androidAppID , false);
+            Bugly.init(this.cordova.getActivity().getApplicationContext(), androidAppID , false);
             callbackContext.success();
             return true;
         }
