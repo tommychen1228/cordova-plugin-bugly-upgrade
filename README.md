@@ -1,5 +1,8 @@
-# tencent-upgrade-cordova-plugin
-tencent upgrade for android cordova plugin
-#安装 cordova plugin add https://github.com/zhangj0110/tencent-upgrade-cordova-plugin
-#android使用
-buglyupgrade.initApp(androidKey,ioskey,successCallback,errorCallback);---androidkey为bugly官网申请的APP_ID
+# Bugly Upgrade Cordova Plugin
+
+##使用方式
+- 添加plugin 
+corodva plugin add https://github.com/tommychen1228/cordova-plugin-bugly-upgrade.git
+- 在应用启动的地方执行初始化
+BuglyUpgrade.initApp(androidKey,iosKey,successCallback,errorCallback);
+androidKey和iosKey为bugly官网申请的APP_ID
